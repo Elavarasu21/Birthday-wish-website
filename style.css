@@ -1,0 +1,62 @@
+*{margin:0;box-sizing:border-box;scroll-behavior:smooth;}
+
+body{
+  font-family:"Poppins",sans-serif;
+  background:#FFD1DC;
+  color:#5c3b47;
+  overflow-x:hidden;
+}
+
+.section-hero,.section-memories,.confetti{position:relative;z-index:1;}
+
+.memory-bg{
+  position:fixed;inset:0;z-index:0;
+  pointer-events:none;opacity:0;
+  transition:opacity 1.2s ease;
+}
+.memory-bg img{
+  width:100%;height:100%;object-fit:contain;
+  background:#000;filter:blur(4px) brightness(.8);
+  opacity:.45;transition:transform 1.8s ease;
+}
+
+.section-hero{
+  min-height:90vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:40px 22px;
+}
+
+h1{font-family:"Playfair Display",serif;font-size:40px;margin-bottom:6px;}
+.subtitle{font-size:15px;opacity:.85;margin-bottom:22px;}
+
+.love-note{max-width:520px;margin:22px auto;font-size:15px;line-height:1.7;text-align:center;}
+
+.btn{
+  background:#ff4f9a;color:#fff;border-radius:28px;
+  padding:12px 26px;font-weight:600;text-decoration:none;
+  box-shadow:0 10px 24px rgba(0,0,0,.12);transition:.25s;
+}
+
+.gift-box{position:relative;width:180px;height:160px;cursor:pointer;perspective:900px;}
+.box{position:absolute;bottom:0;width:100%;height:70%;background:#ffd6e8;border-radius:14px;}
+.lid{position:absolute;top:0;width:100%;height:45%;background:#ffc2dd;border-radius:14px;transform-origin:bottom center;transition:.5s ease;}
+
+.popup-photo{
+  position:absolute;bottom:0;left:50%;
+  transform:translateX(-50%) translateY(70px);
+  width:90%;border-radius:16px;opacity:0;
+  transition:.6s cubic-bezier(.25,1.4,.35,1);
+}
+.gift-box:hover .lid{transform:rotateX(-35deg) translateY(-6px);}
+.gift-box:hover .popup-photo{transform:translateX(-50%) translateY(-8px);opacity:1;}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+@media (max-width:768px){.grid{grid-template-columns:repeat(2,1fr);}}
+
+.card{background:#fff;border-radius:16px;padding:10px;box-shadow:0 12px 26px rgba(0,0,0,.1);}
+.thumb-cap{text-align:center;font-size:13px;margin-top:8px;}
+
+.tap-music-btn{
+  margin-top:18px;padding:12px 26px;border:none;border-radius:30px;
+  background:#e684d9;color:#fff;font-weight:600;cursor:pointer;
+}
