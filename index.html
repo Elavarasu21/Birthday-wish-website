@@ -2,18 +2,176 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Happy Birthday ❤️</title>
+<title>Happy Birthday, My Love ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
+<style>
+*{margin:0;box-sizing:border-box;scroll-behavior:smooth;}
+
+body{
+  position:relative;
+  font-family:"Poppins",sans-serif;
+  background:#FFD1DC;
+  color:#5c3b47;
+  overflow-x:hidden;
+}
+
+/* 🌫 Cinematic background for Hero section only */
+.memory-bg{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
+
+.memory-bg img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#000;
+  filter:blur(4px) brightness(.8);
+  opacity:.45;
+  transform:scale(1);
+  transition:transform 1.8s ease;
+}
+
+/* 🌸 HERO SECTION */
+.section-hero,
+.section-memories,
+.confetti{
+  position:relative;
+  z-index:1;
+}
+
+.section-hero{
+  min-height:90vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:40px 22px;
+}
+
+h1{font-family:"Playfair Display",serif;font-size:40px;margin-bottom:6px;}
+.subtitle{font-size:15px;opacity:.85;margin-bottom:22px;}
+
+.love-note{
+  max-width:520px;
+  margin:22px auto 26px;
+  font-size:15px;
+  line-height:1.7;
+  opacity:.9;
+}
+.love-note p{text-align:center;}
+
+/* 🎉 Falling Hearts */
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:0;}
+.confetti span{
+  position:absolute;font-size:14px;opacity:.75;
+  animation:fall 9s linear infinite;
+}
+@keyframes fall{
+  0%{transform:translateY(-10vh) rotate(0deg);}
+  100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+.btn{
+  background:#ff4f9a;color:#fff;border-radius:28px;
+  padding:12px 26px;font-weight:600;text-decoration:none;
+  box-shadow:0 10px 24px rgba(0,0,0,.12);transition:.25s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.16);}
+
+/* 🎁 GIFT BOXES */
+.gift-box{position:relative;width:180px;height:160px;cursor:pointer;perspective:900px;}
+.box{
+  position:absolute;bottom:0;width:100%;height:70%;
+  background:#ffd6e8;border-radius:14px;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+}
+.lid{
+  position:absolute;top:0;width:100%;height:45%;
+  background:#ffc2dd;border-radius:14px;
+  transform-origin:bottom center;
+  transition:.5s ease;
+}
+
+.popup-photo{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%) translateY(70px);
+  width:90%;
+  border-radius:16px;
+  box-shadow:0 12px 32px rgba(0,0,0,.18);
+  opacity:0;
+  z-index:3;
+  transition:.6s cubic-bezier(.25,1.4,.35,1);
+}
+
+.gift-box:hover .lid{transform:rotateX(-35deg) translateY(-6px);}
+.gift-box:hover .popup-photo{transform:translateX(-50%) translateY(-8px);opacity:1;}
+
+/* 📸 MEMORIES GRID */
+.section-memories{
+  padding:60px 20px;max-width:1000px;margin:auto;
+  position: relative;
+  z-index: 10;
+  background: #FFD1DC; /* Covers the background reveal when scrolling */
+}
+.section-title{font-family:"Playfair Display",serif;font-size:28px;text-align:center;margin-bottom:10px;}
+.section-note{text-align:center;opacity:.8;margin-bottom:26px;}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:24px;
+}
+@media (max-width:768px){ .grid{ grid-template-columns:repeat(2, 1fr); } }
+
+.card{
+  background:#ffffff;border-radius:16px;padding:10px;
+  box-shadow:0 12px 26px rgba(0,0,0,.1);
+  display:flex;flex-direction:column;align-items:center;
+  transition:.25s;
+}
+.card img, .card video{
+  width:100%;
+  aspect-ratio:1028 / 1440;
+  object-fit:cover;
+  border-radius:14px;
+}
+.thumb-cap{text-align:center;font-size:13px;margin-top:8px;opacity:.85;}
+
+/* 🎁 SMALL GIFT STYLE FOR MEMORIES */
+.gift-memory{background:#a8dee1; box-shadow:0 18px 40px rgb(114, 218, 247);}
+.gift-box.small{width:100%; height:auto; aspect-ratio:1028/1440;}
+.gift-box.small .box{background:oklch(86.483% 0.11241 208.952);}
+.gift-box.small .lid{background:#60d2f8;}
+
+/* 🎵 Tap to Hear button */
+.tap-music-btn{
+  margin-top:18px; padding:12px 26px; border:none; border-radius:30px;
+  background:#e684d9; color:#fff; font-size:15px; font-weight:600;
+  cursor:pointer; box-shadow:0 10px 24px rgba(0,0,0,.18); transition:.3s ease;
+}
+
+/* 🎥 VIDEOS */
+.video-card{
+    background:#ffffff; border-radius:16px; padding:12px;
+    box-shadow:0 12px 26px rgba(0,0,0,0.1);
+}
+.video-card video{ width:100%; height:auto; border-radius:12px; background:#000; aspect-ratio: unset;}
+
+</style>
 </head>
 
 <body>
 
 <div class="confetti" id="confetti"></div>
-
 <audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
+  <source src="./music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="memory-bg" id="bgLayer">
@@ -21,7 +179,7 @@
 </div>
 
 <section class="section-hero">
-  <h1>Happy Birthday 💕</h1>
+  <h1>Happy Birthday, My Love! 💕</h1>
   <div class="subtitle">A little surprise just for you — open the gift 🎁</div>
 
   <div class="gift-scene">
@@ -46,7 +204,6 @@
   <div class="section-note">Moments that made our story special</div>
 
   <div class="grid">
-    <!-- Repeat this card for all photos -->
     <div class="card gift-memory">
       <div class="gift-box small">
         <div class="lid"></div>
@@ -61,7 +218,7 @@
         <img src="photos/photo2.jpeg" class="popup-photo">
         <div class="box"></div>
       </div>
-      <div class="thumb-cap">The beginning of our story</div>
+      <div class="thumb-cap">Every laugh with you is a treasure</div>
     </div>
     <div class="card gift-memory">
       <div class="gift-box small">
@@ -95,38 +252,160 @@
       </div>
       <div class="thumb-cap">The beginning of our story</div>
     </div>
-  </div>
+    <div class="card gift-memory">
+      <div class="gift-box small">
+        <div class="lid"></div>
+        <img src="photos/photo7.jpeg" class="popup-photo">
+        <div class="box"></div>
+      </div>
+      <div class="thumb-cap">The beginning of our story</div>
+    </div>
+    <div class="card gift-memory">
+      <div class="gift-box small">
+        <div class="lid"></div>
+        <img src="photos/photo8.jpeg" class="popup-photo">
+        <div class="box"></div>
+      </div>
+      <div class="thumb-cap">The beginning of our story</div>
+    </div>
+    <div class="card gift-memory">
+      <div class="gift-box small">
+        <div class="lid"></div>
+        <img src="photos/photo9.jpeg" class="popup-photo">
+        <div class="box"></div>
+      </div>
+      <div class="thumb-cap">The beginning of our story</div>
+    </div>
+    <div class="card gift-memory">
+      <div class="gift-box small">
+        <div class="lid"></div>
+        <img src="photos/photo10.jpeg" class="popup-photo">
+        <div class="box"></div>
+      </div>
+      <div class="thumb-cap">The beginning of our story</div>
+    </div>
+    <div class="card gift-memory">
+      <div class="gift-box small">
+        <div class="lid"></div>
+        <img src="photos/photo11.jpeg" class="popup-photo">
+        <div class="box"></div>
+      </div>
+      <div class="thumb-cap">The beginning of our story</div>
+    </div>
+    <div class="card gift-memory">
+      <div class="gift-box small">
+        <div class="lid"></div>
+        <img src="photos/photo12.jpeg" class="popup-photo">
+        <div class="box"></div>
+      </div>
+      <div class="thumb-cap">The beginning of our story</div>
+    </div>
+    </div>
 </section>
 
-<section id="videos" class="section-memories" style="padding-top:20px;">
-  <div class="section-title">🎥 Our Moments in Motion</div>
-  <div class="grid">
-    <div class="video-card">
-      <video controls>
-        <source src="videos/video1.mp4" type="video/mp4">
-      </video>
-      <div class="thumb-cap">A special moment 💖</div>
+<section id="videos" class="section-memories" style="padding-top: 20px;">
+    <div class="section-title">🎥 Our Moments in Motion</div>
+    <div class="section-note">Because some memories need more than just a photo</div>
+  
+    <div class="grid">
+      <div class="video-card">
+        <video controls>
+          <source src="videos/video1.mp4" type="video/mp4">
+        </video>
+        <div class="thumb-cap">A special moment 💖</div>
+      </div>
+      
+      <div class="video-card">
+        <video controls>
+          <source src="videos/video2.mp4" type="video/mp4">
+        </video>
+        <div class="thumb-cap">A special moment 💖</div>
+      </div>
+
+      <div class="video-card">
+        <video controls>
+          <source src="videos/video3.mp4" type="video/mp4">
+        </video>
+        <div class="thumb-cap">I love this one! ✨</div>
+      </div>
+
+      <div class="video-card">
+        <video controls>
+          <source src="videos/video4.mp4" type="video/mp4">
+        </video>
+        <div class="thumb-cap">I love this one! ✨</div>
+      </div>
     </div>
+</section>
+<div class="love-note">
+    <p>From the moment you came into my life, every ordinary day turned into something beautiful 💕<br><br>
+    This little gift is just a symbol, but my love for you is endless ✨</p>
   </div>
-  <div class="section-title">🎥 Our Moments in Motion</div>
-  <div class="grid">
-    <div class="video-card">
-      <video controls>
-        <source src="videos/video2.mp4" type="video/mp4">
-      </video>
-      <div class="thumb-cap">A special moment 💖</div>
-    </div>
+
+<section id="memory line" class="section-memories">
+  <div class="section-title">📸 Our Sweet Memories</div>
+  <div class="section-note">Moments that made our story special</div>
+  <div class="love-note">
+    <p>From the moment you came into my life, every ordinary day turned into something beautiful 💕<br><br>
+    This little gift is just a symbol, but my love for you is endless ✨</p>
   </div>
-  <div class="section-title">🎥 Our Moments in Motion</div>
-  <div class="grid">
-    <div class="video-card">
-      <video controls>
-        <source src="videos/video3.mp4" type="video/mp4">
-      </video>
-      <div class="thumb-cap">A special moment 💖</div>
-    </div>
+  <div class="love-note">
+    <p>From the moment you came into my life, every ordinary day turned into something beautiful 💕<br><br>
+    This little gift is just a symbol, but my love for you is endless ✨</p>
+  </div>
+  <div class="love-note">
+    <p>From the moment you came into my life, every ordinary day turned into something beautiful 💕<br><br>
+    This little gift is just a symbol, but my love for you is endless ✨</p>
+  </div>
+  <div class="love-note">
+    <p>From the moment you came into my life, every ordinary day turned into something beautiful 💕<br><br>
+    This little gift is just a symbol, but my love for you is endless ✨</p>
   </div>
 </section>
-<script src="script.js"></script>
+<script>
+/* 🎉 Generate Hearts */
+const confetti=document.getElementById("confetti");
+const colors=["#ff6ea9","#ff9ec8","#ff7fb8","#ff4f9a"];
+for(let i=0;i<40;i++){
+  const s=document.createElement("span");
+  s.textContent="❤";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*-40+"vh";
+  s.style.color=colors[Math.floor(Math.random()*colors.length)];
+  s.style.animationDuration=(6+Math.random()*6)+"s";
+  s.style.fontSize=(12+Math.random()*12)+"px";
+  confetti.appendChild(s);
+}
+
+/* 🌫 Hero Gift Background Logic Only */
+const heroGift = document.getElementById('heroGift');
+const bgLayer = document.getElementById('bgLayer');
+const bgImg = document.getElementById('memoryBgImg');
+const DEFAULT_BG = "Photos/default-bg.png";
+let hideTimeout;
+
+heroGift.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+    const photo = heroGift.querySelector('.popup-photo');
+    bgImg.src = photo.dataset.bg;
+    bgLayer.style.opacity = '1';
+    bgImg.style.transform = 'scale(1.08)';
+});
+
+heroGift.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(() => {
+        bgLayer.style.opacity = '0';
+        bgImg.style.transform = 'scale(1)';
+    }, 600);
+});
+
+/* 🎵 Play music */
+function playMusic(){
+  const bgMusic = document.getElementById('bgMusic');
+  bgMusic.volume = 0.8;
+  bgMusic.play().catch(err => alert("Tap again to allow sound"));
+}
+</script>
+
 </body>
 </html>
