@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="confetti" id="confetti"></div>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="memory-bg" id="bgLayer">
+  <img id="memoryBgImg" src="Photos/default-bg.png">
+</div>
+
+<section class="section-hero">
+  <h1>Happy Birthday 💕</h1>
+  <div class="subtitle">A little surprise just for you — open the gift 🎁</div>
+
+  <div class="gift-scene">
+    <div class="gift-box" id="heroGift">
+      <div class="lid"></div>
+      <img src="Photos/my-photo.jpeg" class="popup-photo" data-bg="Photos/my-photo.jpeg">
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <div class="love-note">
+    <p>From the moment you came into my life, every ordinary day turned into something beautiful 💕<br><br>
+    This little gift is just a symbol, but my love for you is endless ✨</p>
+    <button class="tap-music-btn" onclick="playMusic()">🎵 Tap to Hear</button>
+  </div>
+
+  <a href="#memories" class="btn">Go to Our Sweet Memories 💖</a>
+</section>
+
+<section id="memories" class="section-memories">
+  <div class="section-title">📸 Our Sweet Memories</div>
+  <div class="section-note">Moments that made our story special</div>
+
+  <div class="grid">
+    <!-- Repeat this card for all photos -->
+    <div class="card gift-memory">
+      <div class="gift-box small">
+        <div class="lid"></div>
+        <img src="photos/photo1.jpeg" class="popup-photo">
+        <div class="box"></div>
+      </div>
+      <div class="thumb-cap">The beginning of our story</div>
+    </div>
+  </div>
+</section>
+
+<section id="videos" class="section-memories" style="padding-top:20px;">
+  <div class="section-title">🎥 Our Moments in Motion</div>
+  <div class="grid">
+    <div class="video-card">
+      <video controls>
+        <source src="videos/video1.mp4" type="video/mp4">
+      </video>
+      <div class="thumb-cap">A special moment 💖</div>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
